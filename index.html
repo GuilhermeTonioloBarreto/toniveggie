@@ -4,13 +4,46 @@
   <title>Comidas Vegetarianas</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- bootstrap reference -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- css reference-->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div class="container">
-  <h1>Comidas Vegetarianas</h1>
+<!-- navbar -->
+<div id="barraDeNavegacao" class="container">
+  <nav class="navbar navbar-expand-sm bg-success navbar-dark ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Toni Veggie</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Receitas Veggies</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Temperos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Dieta</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Alimentos</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav> 
+</div>
+
+<div class="container" id="conteudo">
+  <h1 id="titulo" class="text-center">Comidas Vegetarianas</h1>
 
   <div id="divFiltros">
 
@@ -21,9 +54,40 @@
 
   </div>
   
+ <!-- Escondidinho -->
+  <details class="receita">
+  <summary class="h2">Escondidinho</summary>
+
+  <p>O escondidinho é basicamente uma travessa com algum legume cozido ou assado 
+    por baixo e um purê feito com algum tubérculo. Geralmente coloca essa travessa 
+    no forno para dar uma queimadinha na superfície do purê.</p>
+  
+  <h3>Ingredientes</h3>
+  <ul>
+    <li>Batata cozida, mandioca cozida ou batata doce cozida</li>
+    <li>Leite</li>
+    <li>Margarina</li>
+    <li>Brócolis ou abobrinha</li>
+    <li>Temperos de sua preferência</li>
+    <li>Opcional: Queijo</li>
+  </ul>
+
+  <h3>Preparo</h3>
+  <ul>
+    <li>Irei descrever a receita usando batata, leite, margarina e brócolis</li>
+    <li>Cozinhe ou asse o brócolis. Adicione-o na travessa. Tempere-o</li>
+    <li>Amasse a batata cozida, acrescente uma colher de margarina e misture tudo</li>
+    <li>Acrescente leite de pouquinho em pouquinho e vai misturando, até chegar 
+      na consistência de purê que deseja. Tempere o purê formado</li>
+    <li>Coloque o pure em cima do brócolis, para cobrí-lo completamente</li>
+    <li>Opcional: Coloque queijo em cima do purê</li>
+    <li>Opcional: Coloque para assar</li>
+  </ul>
+  </details>
+
   <!-- Estrogonofe -->
   <details class="receita">
-    <summary class="h2" >Estrogonofe</summary>
+    <summary class="h2 tituloReceita" >Estrogonofe</summary>
 
     <p>O estrogonofe é basicamente algum legume (ou mesmo leguminosa) e que, depois 
       de refogado ou assado, você mistura com creme de leite, ketchup e mostarda.</p>
@@ -79,36 +143,7 @@
     </ul>
   </details>
 
-  <!-- Escondidinho -->
-  <details class="receita">
-    <summary class="h2">Escondidinho</summary>
-
-    <p>O escondidinho é basicamente uma travessa com algum legume cozido ou assado 
-      por baixo e um purê feito com algum tubérculo. Geralmente coloca essa travessa 
-      no forno para dar uma queimadinha na superfície do purê.</p>
-    
-    <h3>Ingredientes</h3>
-    <ul>
-      <li>Batata cozida, mandioca cozida ou batata doce cozida</li>
-      <li>Leite</li>
-      <li>Margarina</li>
-      <li>Brócolis ou abobrinha</li>
-      <li>Temperos de sua preferência</li>
-      <li>Opcional: Queijo</li>
-    </ul>
-
-    <h3>Preparo</h3>
-    <ul>
-      <li>Irei descrever a receita usando batata, leite, margarina e brócolis</li>
-      <li>Cozinhe ou asse o brócolis. Adicione-o na travessa. Tempere-o</li>
-      <li>Amasse a batata cozida, acrescente uma colher de margarina e misture tudo</li>
-      <li>Acrescente leite de pouquinho em pouquinho e vai misturando, até chegar 
-        na consistência de purê que deseja. Tempere o purê formado</li>
-      <li>Coloque o pure em cima do brócolis, para cobrí-lo completamente</li>
-      <li>Opcional: Coloque queijo em cima do purê</li>
-      <li>Opcional: Coloque para assar</li>
-    </ul>
-  </details>
+ 
 
 </div>
 

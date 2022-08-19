@@ -1,0 +1,17 @@
+#barraDeNavegacao{
+   background-color: #198754;
+}
+
+#conteudo{
+    padding: 10px;
+    background-color: #98FB98;
+}
+
+
+
+.receita{
+    margin: 5px 0px;
+    padding: 0px 5px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+}
