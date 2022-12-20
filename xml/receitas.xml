@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<receitas>
+    <receita>
+        <id>0</id>
+        <nome>Bolo Gelado</nome>
+        <descricao>Esta receita é de um bolo que minha mãe fazia quando era criança. É um dos meus bolos favoritos!</descricao>
+        <ingredientes>
+            <ingrediente>2 bolos do tipo pullman de coco fatiado em pedaços</ingrediente>
+            <ingrediente>1 litro de leite</ingrediente>
+            <ingrediente>1 caixinha (400g) de leite condensado</ingrediente>
+            <ingrediente>1 vidro (200ml) de leite de coco</ingrediente>
+            <ingrediente>3 ovos</ingrediente>
+            <ingrediente>3 colheres de sopa de maizena</ingrediente>
+            <ingrediente>3 colheres de sopa de açúcar</ingrediente>
+            <ingrediente>1 pacote de coco ralado</ingrediente>
+        </ingredientes>
+        <preparos>
+            <preparo>Em uma panela, misture o leite, o leite condensado, o leite de coco, e o açúcar</preparo>
+            <preparo>Misture bem os três ovos em um recipiente separado e depois o adicone na panela. Misture toda essa mistureba</preparo>
+            <preparo>Ligue o fogão em fogo baixo e vai movimentando essa mistura da panela para não queimar a mistura</preparo>
+            <preparo>De pouquinho, vai colocando as colheres de maizena (coloque uma, misture até se misturar com tudo e coloque outra … e assim vai indo)</preparo>
+            <preparo>Quando estiver tudo misturado, coloque o pacote de coco ralado e misture tudo</preparo>
+            <preparo>Em uma travessa, coloque um pouco desse molho no fundo e depois coloque as fatias de bolo. Quando as fatias completarem uma camada de bolo na travessa, coloque mais molho em cima das fatias de bolo da travessa e depois preencha com outra camada de bolo. Faça isso até acabar o bolo e o molho</preparo>
+            <preparo>Coloque na geladeira com papel alumínio em cima por 24h</preparo>       
+        </preparos>
+    </receita>
+    <receita>
+        <id>1</id>
+        <nome>Escondidinho</nome>
+        <descricao>O escondidinho é basicamente uma travessa com algum legume cozido ou assado por baixo e um purê feito com algum tubérculo. Geralmente coloca essa travessa no forno para dar uma queimadinha na superfície do purê.</descricao>
+        <ingredientes>
+            <ingrediente>Batata cozida, mandioca cozida ou batata doce cozida</ingrediente>
+            <ingrediente>Leite</ingrediente>
+            <ingrediente>Margarina</ingrediente>
+            <ingrediente>Brócolis ou abobrinha	</ingrediente>
+            <ingrediente>Temperos de sua preferência</ingrediente>
+            <ingrediente>Opcional: Queijo</ingrediente>
+        </ingredientes>
+        <preparos>
+            <preparo>Irei descrever a receita usando batata, leite, margarina e brócolis</preparo>
+            <preparo>Cozinhe ou asse o brócolis. Adicione-o na travessa. Tempere-o</preparo>
+            <preparo>Amasse a batata cozida, acrescente uma colher de margarina e misture tudo</preparo>
+            <preparo>Acrescente leite de pouquinho em pouquinho e vai misturando, até chegar na consistência de purê que deseja. Tempere o purê formado</preparo>
+            <preparo>Coloque o pure em cima do brócolis, para cobrí-lo completamente</preparo>
+            <preparo>Opcional: Coloque queijo em cima do purê</preparo>
+            <preparo>Opcional: Coloque para assar</preparo>
+        </preparos>
+    </receita>
+    <receita>
+        <id>2</id>
+        <nome>Boliunho Geladinho</nome>
+        <descricao>Esta receita é de um bolo que minha mãe fazia quando era criança. É um dos meus bolos favoritos!</descricao>
+        <ingredientes>
+            <ingrediente>2 bolos do tipo pullman de coco fatiado em pedaços</ingrediente>
+            <ingrediente>1 litro de leite</ingrediente>
+            <ingrediente>1 caixinha (400g) de leite condensado</ingrediente>
+            <ingrediente>1 vidro (200ml) de leite de coco</ingrediente>
+            <ingrediente>3 ovos</ingrediente>
+            <ingrediente>3 colheres de sopa de maizena</ingrediente>
+            <ingrediente>3 colheres de sopa de açúcar</ingrediente>
+            <ingrediente>1 pacote de coco ralado</ingrediente>
+        </ingredientes>
+        <preparos>
+            <preparo>Em uma panela, misture o leite, o leite condensado, o leite de coco, e o açúcar</preparo>
+            <preparo>Misture bem os três ovos em um recipiente separado e depois o adicone na panela. Misture toda essa mistureba</preparo>
+            <preparo>Ligue o fogão em fogo baixo e vai movimentando essa mistura da panela para não queimar a mistura</preparo>
+            <preparo>De pouquinho, vai colocando as colheres de maizena (coloque uma, misture até se misturar com tudo e coloque outra … e assim vai indo)</preparo>
+            <preparo>Quando estiver tudo misturado, coloque o pacote de coco ralado e misture tudo</preparo>
+            <preparo>Em uma travessa, coloque um pouco desse molho no fundo e depois coloque as fatias de bolo. Quando as fatias completarem uma camada de bolo na travessa, coloque mais molho em cima das fatias de bolo da travessa e depois preencha com outra camada de bolo. Faça isso até acabar o bolo e o molho</preparo>
+            <preparo>Coloque na geladeira com papel alumínio em cima por 24h</preparo>       
+        </preparos>
+    </receita>
+</receitas>
