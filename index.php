@@ -1,3 +1,6 @@
+<!-- Constantes usadas no programa -->
+<?php define ("XML_FILE_NAME", "receitas.xml"); ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,6 +16,8 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<!-- Constantes usadas no programa -->
+
 
 <!-- navbar -->
 <?php include 'php/navbar.php' ?>
@@ -29,58 +34,111 @@
     </div>
 
   </div>
+  
+<!-- criar XML se necessário-->
+<?php
+	if(file_exists('xml/' . XML_FILE_NAME)){
+		;
+	}else{
+		$xml = new DOMDocument();
+		$xml->encoding = 'utf-8';
+		$xml->xmlVersion = '1.0';
+		$xml->formatOutput = true;
 
-  <!-- display recipes -->  
-  <?php
-  // load xml file
-  $xml=simplexml_load_file("xml/receitas.xml") or die("Error: Cannot create object");
+		// eu primeiramente preciso criar um nó root
+		$root = $xml->createElement('receitas');
+
+		// obrigatoriamente eu preciso adicionar ao menos um node ao root
+		// irei colocar um template do que é gravado no XML
+		$node = $xml->createElement('receita');
+		$nodeNome = $xml->createElement('nome', 'Arquivo .xml criado');
+		$nodeDescricao = $xml->createElement('descricao', 'Toda vez que o arquivo .xml é deletado, o progama 
+			php gera outro arquivo .xml. Se preferir, delete este template');
+
+		$node->appendChild($nodeNome);
+		$node->appendChild($nodeDescricao);
+		
+		$root->appendChild($node);
+		
+		// depois, adiciono o root no xml principal e salvo
+		$xml->appendChild($root);
+		$xml->save('xml/' . XML_FILE_NAME) or die('não foi possível criar o arquivo .xml');
+	}
+?>  
+
+<!-- numerar receita -->
+<?php $numerarReceita = 0; ?>
   
-  // display each recipe
-  foreach($xml->children() as $receita){
-  ?>
+<!-- mostrar  receitas -->
+<div>  
+	<?php
+  	// load xml file
+	$xml=simplexml_load_file("xml/" . XML_FILE_NAME) or die('Não foi possível abrir o arquivo .xml');
+
+	// display each recipe
+  	foreach($xml->children() as $receita){
+	?>
   
-  <!-- create class receita -->
-  <details class="receita">
+  	<!-- create class receita -->
+  	<details class="receita">
   
-  <!-- display recipe name -->
-  <summary class="h2"><?php echo $receita->nome ?></summary>
+ 	<!-- display recipe name -->
+  	<summary class="h2"><?php echo $receita->nome ?></summary>
   
-  <!-- display description -->
-  <p><?php echo $receita->descricao ?></p>
+  	<!-- display description -->
+  	<p><?php echo $receita->descricao ?></p>
   
-  <!-- display ingredients -->
-  <h3>Ingredientes</h3>
-  <ul>
-  <?php foreach($receita->ingredientes->children() as $ingrediente){ ?>
-      <li> <?php echo $ingrediente ?> </li>
-  <?php } ?>
-  </ul>
+  	<!-- display ingredients -->
+  	<h3>Ingredientes</h3>
+  	<ul>
+  	<?php foreach($receita->ingredientes->children() as $ingrediente){ ?>
+    	<li> <?php echo $ingrediente ?> </li>
+  	<?php } ?>
+  	</ul>
   
-  <!-- display food prepare -->
-  <h3>Preparo</h3>
-  <ul>
-  <?php foreach($receita->preparos->children() as $preparo){ ?>
-      <li> <?php echo $preparo ?> </li>
-  <?php } ?>
-  </ul>
-  
-  </details>
-  <?php } ?> <!-- end of main foreach -->
+ 	<!-- display food prepare -->
+  	<h3>Preparo</h3>
+  	<ul>
+  	<?php foreach($receita->preparos->children() as $preparo){ ?>
+    	<li> <?php echo $preparo ?> </li>
+  	<?php } ?>
+  	</ul>
+
+	<!-- adicionar botões de atualizar e deletar -->	
+	  	
+	<div class="btn-group mb-2" id="divBotoes">
+		<!-- botão atualizar receita -->
+  		<button type="button" class="btn btn-outline-success">Atualizar Receita</button>
+  		
+		<!-- botão deletar receita -->
+  		<form name="myForm" method="post" action="php/deleteReceita.php">
+			<button type="submit" class="btn btn-outline-success" 
+				name="deletarReceita" value= <?php echo $numerarReceita++; ?>  >Deletar Receita</button>
+		</form>
+  	</div>
+  	
+  	</details>
+
+  	<?php } ?> <!-- end of main foreach -->
+	
+</div>
   
 </div>
 
-<!-- modal para adicionar receita -->
-<div class="container" id="modal-adicionar">
-
 <!-- botão para adicionar receita -->  
 <div id="botao-adicionar" data-bs-toggle="modal" data-bs-target="#modalAdicionar">+</div>
+
+<!-- modal -->
+
+<!-- modal para adicionar receita -->
+<div class="container" id="modal-adicionar">
 
 <!-- modal -->
 <div class="modal fade" id="modalAdicionar" tabindex="-1" aria-hidden="true" data-bs-backdrop="static"  data-bs-target="#staticBackdrop">
   <div class="modal-dialog">
     <div class="modal-content">
     
-      <form name="myForm" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+      <form name="myForm" method="post" action="php/addReceita.php">
 
       <div class="modal-header">
         <h5 class="modal-title">Adicionar Receita</h5>
@@ -133,43 +191,25 @@
 </div>
 
 
-<!-- adiciona receitas no arquivo XML -->
+<!-- atualizar dados de um node já existente -->
 <?php
+/*
+$xml=simplexml_load_file(XML_FILE_NAME) or die("Error: Cannot open file");
 
-// Get dados do formulário
-$nomeReceita = "";
-$descricaoReceita = "";
-$ingredienteReceita = "";
-$preparoReceita = "";
+$xml->nome[0] = 'tarcisio';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nomeReceita = test_input($_POST["nomeReceita"]);
-    $descricaoReceita = test_input($_POST["descricaoReceita"]);
-    $ingredienteReceita = test_input_array($_POST["ingredienteReceita"]);
-    $preparoReceita = test_input_array($_POST["preparoReceita"]);
-  }
+$xml->asXML(XML_FILE_NAME);
+*/
+?>
 
-// dá uma formatada na string que veio do usuário
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
 
-function test_input_array(){
-	foreach($datas as $data){
-		$data = trim($data);
-  		$data = stripslashes($data);
-  		$data = htmlspecialchars($data);
-	}
-	return $datas;
-}
+<!-- remover node -->
+<?php
+//$xml=simplexml_load_file(XML_FILE_NAME) or die("Error: Cannot open file");
 
-echo $nomeReceita . "<br>";
-echo $descricaoReceita . "<br>";
-print_r($ingredienteReceita) . "<br>";
-print_r($preparoReceita) . "<br>";
+//unset($xml->nome[0]);
+
+//$xml->asXML(XML_FILE_NAME);
 
 ?>
 

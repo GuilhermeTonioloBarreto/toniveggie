@@ -37,3 +37,8 @@
 	font-weight: 900;
 	box-shadow: 2px 2px 20px #5FE690;
 }
+
+/* Layout dos botões de atualizar e deletar receita*/
+#divBotoes{
+	margin: 1000px;
+}
