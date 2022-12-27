@@ -18,8 +18,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
 
+
 <!-- remover node -->
 <?php
+
 $xml=simplexml_load_file('../xml/' . XML_FILE_NAME) or die("Error: Não consegue abrir .xml para deletar receita");
 
 unset($xml->receita[$deletarReceitaInt]);
@@ -27,4 +29,5 @@ unset($xml->receita[$deletarReceitaInt]);
 $xml->asXML('../xml/' . XML_FILE_NAME);
 
 header("Location:../index.php");
+
 ?>

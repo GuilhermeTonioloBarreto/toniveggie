@@ -35,7 +35,7 @@
 
   </div>
   
-<!-- criar XML se necessário-->
+<!-- criar XML (caso ele não tenha sido criado) -->
 <?php
 	if(file_exists('xml/' . XML_FILE_NAME)){
 		;
@@ -92,7 +92,7 @@
   	<h3>Ingredientes</h3>
   	<ul>
   	<?php foreach($receita->ingredientes->children() as $ingrediente){ ?>
-    	<li> <?php echo $ingrediente ?> </li>
+    	<li><?php echo $ingrediente ?></li>
   	<?php } ?>
   	</ul>
   
@@ -100,7 +100,7 @@
   	<h3>Preparo</h3>
   	<ul>
   	<?php foreach($receita->preparos->children() as $preparo){ ?>
-    	<li> <?php echo $preparo ?> </li>
+    	<li><?php echo $preparo ?></li>
   	<?php } ?>
   	</ul>
 
@@ -108,13 +108,18 @@
 	  	
 	<div class="btn-group mb-2" id="divBotoes">
 		<!-- botão atualizar receita -->
-  		<button type="button" class="btn btn-outline-success">Atualizar Receita</button>
+  		<button type="button" class="btn btn-outline-success botao-atualizar" 
+  			data-bs-toggle="modal" data-bs-target="#modalAdicionar" value= <?php echo $numerarReceita; ?>  >
+  			Atualizar Receita
+  		</button>
   		
 		<!-- botão deletar receita -->
-  		<form name="myForm" method="post" action="php/deleteReceita.php">
-			<button type="submit" class="btn btn-outline-success" 
-				name="deletarReceita" value= <?php echo $numerarReceita++; ?>  >Deletar Receita</button>
+		<form method="post" action="php/deleteReceita.php" class="deletarForm" name="deletarForm">
+			<button type="submit" class="btn btn-outline-success deletarReceitaButton"
+				name="deletarReceita" value= <?php echo $numerarReceita++; ?> >Deletar Receita
+			</button>
 		</form>
+
   	</div>
   	
   	</details>
@@ -128,20 +133,15 @@
 <!-- botão para adicionar receita -->  
 <div id="botao-adicionar" data-bs-toggle="modal" data-bs-target="#modalAdicionar">+</div>
 
-<!-- modal -->
-
 <!-- modal para adicionar receita -->
-<div class="container" id="modal-adicionar">
-
-<!-- modal -->
 <div class="modal fade" id="modalAdicionar" tabindex="-1" aria-hidden="true" data-bs-backdrop="static"  data-bs-target="#staticBackdrop">
   <div class="modal-dialog">
     <div class="modal-content">
     
-      <form name="myForm" method="post" action="php/addReceita.php">
+      <form id="myForm" name="myForm" method="post" action="php/addReceita.php">
 
       <div class="modal-header">
-        <h5 class="modal-title">Adicionar Receita</h5>
+        <h5 class="modal-title" id="modalTitulo">Adicionar Receita</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeModal()"></button>
       </div>
       
@@ -149,20 +149,20 @@
           <!-- adicionar nome da receita -->
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Nome da Receita</label>
-            <input type="text" class="form-control" name="nomeReceita" required>
+            <input type="text" class="form-control" name="nomeReceita" id="modalNome" required>
           </div>
           
           <!-- adicionar descricao da receita -->
           <div class="mb-3">
             <label for="message-text" class="col-form-label">Descrição da Receita</label>
-            <textarea class="form-control" name="descricaoReceita" required></textarea>
+            <textarea class="form-control" name="descricaoReceita" id="modalDescricao" required></textarea>
           </div>
           
           <!-- adicionar ingredientes da receita -->
           <div class="mb-3" id="div-ingrediente">
             <label for="recipient-name" class="col-form-label">Ingredientes</label>
             <div class="input-group mb-3">
-      			<input type="text" class="form-control input-ingrediente" placeholder="Digite um dos ingredientes da receita" name="ingredienteReceita[]" required>
+      			<input type="text" class="form-control modalIngrediente" placeholder="Digite um dos ingredientes da receita" name="ingredienteReceita[]" required>
       			<button class="btn btn-success" type="button" onclick="adicioneInput('ingrediente')">+</button>
     		</div>
           </div>
@@ -171,7 +171,7 @@
           <div class="mb-3" id="div-preparo">
             <label for="recipient-name" class="col-form-label">Preparo</label>
             <div class="input-group mb-3">
-      			<input type="text" class="form-control input-preparo" placeholder="Digite um dos passos da receita" name="preparoReceita[]" required>
+      			<input type="text" class="form-control modalPreparo" placeholder="Digite um dos passos da receita" name="preparoReceita[]" required>
       			<button class="btn btn-success" type="button" onclick="adicioneInput('preparo')">+</button>
     		</div>
           </div>
@@ -179,41 +179,20 @@
       
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeModal()">Cancelar</button>
-        <button type="submit" name="submit" value="submit" class="btn btn-success">Adicionar Receita</button>
+        <button id="modalAdicionarReceitaButton" type="submit" name="updateReceita" value="" class="btn btn-success">Adicionar Receita</button>
       </div>
 
-    </form>
+	  </form>
     
     </div>
 
   </div>
 </div>
-</div>
 
-
-<!-- atualizar dados de um node já existente -->
-<?php
-/*
-$xml=simplexml_load_file(XML_FILE_NAME) or die("Error: Cannot open file");
-
-$xml->nome[0] = 'tarcisio';
-
-$xml->asXML(XML_FILE_NAME);
-*/
-?>
-
-
-<!-- remover node -->
-<?php
-//$xml=simplexml_load_file(XML_FILE_NAME) or die("Error: Cannot open file");
-
-//unset($xml->nome[0]);
-
-//$xml->asXML(XML_FILE_NAME);
-
-?>
-
-<script src="js/script.js"></script>
+<script src="js/filtroReceitas.js"></script>
+<script src="js/inputsModal.js"></script>
+<script src="js/atualizaInputsModal.js"></script>
+<script src="js/ordenarReceitas.js"></script>
 
 </body>
 </html>

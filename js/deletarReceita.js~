@@ -1,0 +1,5 @@
+function sendData() {
+	let buttonDelete = document.getElementsByClassName("deletarReceitaButton");
+	//console.log(buttonDelete);
+	buttonDelete[4].click();
+}
