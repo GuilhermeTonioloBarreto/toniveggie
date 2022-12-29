@@ -106,7 +106,7 @@
   	</ul>
 
 	<!-- adicionar botões de atualizar e deletar -->	
-	<div class="botoesAtualizarExlcluir" style="display: none;	"> 	
+	<div class="botoesAtualizarExlcluir" style="display: none;"> 	
 		<div class="btn-group mb-2" >
 		
 			<!-- botão atualizar receita -->

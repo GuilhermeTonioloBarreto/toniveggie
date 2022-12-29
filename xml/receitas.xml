@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<receitas>
-  <receita>
-    <nome>Arquivo .xml criado</nome>
-    <descricao>Toda vez que o arquivo .xml é deletado, o progama 
-			php gera outro arquivo .xml. Se preferir, delete este template</descricao>
-  </receita>
-</receitas>

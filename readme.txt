@@ -1,2 +1,14 @@
 para rodar o programa:
-- não esqueça de colocar a pasta /xml com privilégio máximo (chmod 777)
+- instale o apache2 e o php
+- dê um git clone no repositório /var/www/html/
+- coloque a pasta /xml com privilégio máximo (chmod 777)
+- certifique-se de que os seguintes módulos do php estão instalados (utilizando o comando php -m):
+--- libxml
+--- SimpleXML
+--- xml
+--- xmlreader
+--- xmlrpc
+--- xmlwriter
+- rode o programa pela primeira vez (neste momento, será criado um arquivo xml/receitas.xml
+- coloque o arquivo recém criado receitas.xml com privilégio máximo (chmod 777)
+- atualize a página novamente
