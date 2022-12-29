@@ -15,9 +15,8 @@
   <!-- css reference-->
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-<!-- Constantes usadas no programa -->
 
+<body>
 
 <!-- navbar -->
 <?php include 'php/navbar.php' ?>
@@ -68,13 +67,15 @@
 
 <!-- numerar receita -->
 <?php $numerarReceita = 0; ?>
-  
-<!-- mostrar  receitas -->
-<div>  
-	<?php
-  	// load xml file
+ 
+<?php
+	// load xml file
 	$xml=simplexml_load_file("xml/" . XML_FILE_NAME) or die('Não foi possível abrir o arquivo .xml');
-
+?> 
+ 
+<!-- mostrar  receitas -->
+<div id="conteudoReceitas">  
+	<?php
 	// display each recipe
   	foreach($xml->children() as $receita){
 	?>
@@ -105,21 +106,24 @@
   	</ul>
 
 	<!-- adicionar botões de atualizar e deletar -->	
-	  	
-	<div class="btn-group mb-2" id="divBotoes">
-		<!-- botão atualizar receita -->
-  		<button type="button" class="btn btn-outline-success botao-atualizar" 
-  			data-bs-toggle="modal" data-bs-target="#modalAdicionar" value= <?php echo $numerarReceita; ?>  >
-  			Atualizar Receita
-  		</button>
+	<div class="botoesAtualizarExlcluir" style="display: none;	"> 	
+		<div class="btn-group mb-2" >
+		
+			<!-- botão atualizar receita -->
+  			<button type="button" class="btn btn-outline-success botao-atualizar" 
+  				data-bs-toggle="modal" data-bs-target="#modalAdicionar" 
+  				onclick=<?php echo "'atualizarReceita(" . $numerarReceita . ")'" ?> >
+  				Atualizar Receita
+  			</button>
   		
-		<!-- botão deletar receita -->
-		<form method="post" action="php/deleteReceita.php" class="deletarForm" name="deletarForm">
-			<button type="submit" class="btn btn-outline-success deletarReceitaButton"
-				name="deletarReceita" value= <?php echo $numerarReceita++; ?> >Deletar Receita
-			</button>
-		</form>
+			<!-- botão deletar receita -->
+			<form method="post" action="php/deleteReceita.php" class="deletarForm" name="deletarForm">
+				<button type="submit" class="btn btn-outline-success deletarReceitaButton"
+					name="deletarReceita" value= <?php echo $numerarReceita++; ?> >Deletar Receita
+				</button>
+			</form>
 
+  		</div>
   	</div>
   	
   	</details>
@@ -131,7 +135,7 @@
 </div>
 
 <!-- botão para adicionar receita -->  
-<div id="botao-adicionar" data-bs-toggle="modal" data-bs-target="#modalAdicionar">+</div>
+<div id="botao-adicionar" data-bs-toggle="modal" data-bs-target="#modalAdicionar" style="display: none;">+</div>
 
 <!-- modal para adicionar receita -->
 <div class="modal fade" id="modalAdicionar" tabindex="-1" aria-hidden="true" data-bs-backdrop="static"  data-bs-target="#staticBackdrop">
@@ -189,10 +193,14 @@
   </div>
 </div>
 
+<!-- botão para liberar edição de receitas no site -->
+<div id="botao-editar" onclick="liberarEdicaoSite()">&#9997</div>
+
 <script src="js/filtroReceitas.js"></script>
 <script src="js/inputsModal.js"></script>
 <script src="js/atualizaInputsModal.js"></script>
-<script src="js/deletarReceita.js"></script>
+<script src="js/ordenarReceitas.js"></script>
+<script src="js/liberarEdicaoSite.js"></script>
 
 </body>
 </html>

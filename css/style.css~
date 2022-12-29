@@ -17,7 +17,7 @@
 /* Layout do botão de adicionar receita*/
 #botao-adicionar{
 	position: fixed;
-	bottom: 125px;
+	bottom: 115px;
 	right: 30px;
 	font-size: 35px;
 	background-color: #01E675;

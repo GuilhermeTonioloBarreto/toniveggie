@@ -1,15 +1,5 @@
-// esta função adiciona as informações da receita no modal,
-// para que assim a receita possa ser atualizada
-let botoesAtualizar = document.getElementsByClassName("botao-atualizar");
-
-// adiciona o evento listener em cada um dos botões de atualizar nas receitas
-for(let i = 0; i < botoesAtualizar.length; i++){
-	
-	botoesAtualizar[i].addEventListener("click", function () {
-		// esta variável id identifica a receita que será atualizada
-		let id = botoesAtualizar[i].value;
-		loadXmlDoc(id);		
-	});
+function atualizarReceita(id) {
+	loadXmlDoc(id);
 }
 
 // realiza um http request para pegar os dados do arquivo receitas.xml
