@@ -53,5 +53,8 @@ function adicioneInput(item){
     document.getElementById(id).appendChild(addFiltro);
 }
 
-
+// função que atualiza a página quando algum dos botões de cancelar do modal for clicado
+function closeModal(){
+	window.location.reload();
+}
 

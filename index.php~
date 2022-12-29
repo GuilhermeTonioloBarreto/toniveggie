@@ -106,7 +106,7 @@
   	</ul>
 
 	<!-- adicionar botões de atualizar e deletar -->	
-	<div class="botoesAtualizarExlcluir" style="display: none;"> 	
+	<div class="botoesAtualizarExcluir" style="display: none;"> 	
 		<div class="btn-group mb-2" >
 		
 			<!-- botão atualizar receita -->
@@ -195,6 +195,58 @@
 
 <!-- botão para liberar edição de receitas no site -->
 <div id="botao-editar" onclick="liberarEdicaoSite()">&#9997</div>
+
+
+<!-- modal para liberar edição das receitas no site -->
+<div class="modal fade" id="modalLiberarEdicao" tabindex="-1" aria-hidden="true" data-bs-backdrop="static"  data-bs-target="#staticBackdrop">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitulo">Verificar Senha</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeModal()"></button>
+      </div>
+      
+      <div class="modal-body">        
+          <!-- adicionar senha de acesso ao site -->
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Digite a senha para editar as receitas</label>
+            <input type="password" class="form-control" id="modalSenhaDigitada" required>
+          </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeModal()">Cancelar</button>
+        <button type="submit" onclick="modalVerificarSenha()" data-bs-dismiss="modal" class="btn btn-success">Liberar Acesso</button>
+      </div>
+    
+    </div>
+
+  </div>
+</div>
+
+<!-- modal para sinalizar senha errada -->
+<div class="modal fade" id="modalSenhaErrada" tabindex="-1" aria-hidden="true" data-bs-backdrop="static"  data-bs-target="#staticBackdrop">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitulo">Senha Errada</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeModal()"></button>
+      </div>
+      
+      <div class="modal-body">        
+            <label for="recipient-name" class="col-form-label">A senha está errada!</label>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="closeModal()">Ok</button>
+      </div>
+    
+    </div>
+
+  </div>
+</div>
 
 <script src="js/filtroReceitas.js"></script>
 <script src="js/inputsModal.js"></script>

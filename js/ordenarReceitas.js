@@ -11,6 +11,8 @@ for(let i = 0; i < details.length; i++){
 // ordena o título das receitas
 titulos.sort();
 
+
+// o código abaixo detecta o detail que está na ordem certa, o adiciona na sequência e deleta o que está fora de ordem
 for(let i = 0; i < titulos.length; i++){
 	for(let j = 0; j < details.length; j++){
 		if(titulos[i] === details[j].childNodes[3].innerHTML){
