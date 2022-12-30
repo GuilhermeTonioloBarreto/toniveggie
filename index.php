@@ -253,6 +253,7 @@
 <script src="js/atualizaInputsModal.js"></script>
 <script src="js/ordenarReceitas.js"></script>
 <script src="js/liberarEdicaoSite.js"></script>
+<script src="js/funcoesComuns.js" ></script>
 
 </body>
 </html>
