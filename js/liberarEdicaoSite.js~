@@ -30,6 +30,7 @@ function modalVerificarSenha() {
 	// pegar senha salva no arquivo senha.txt
  	const xhttp = new XMLHttpRequest();
  	
+ 	
  	// quando o dado requisitado do servidor chegar ... 
   	xhttp.onload = function() {  		
   		
